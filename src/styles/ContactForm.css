@@ -1,0 +1,44 @@
+input[type="text"],
+input[type="email"],
+textarea {
+  border: thin solid #dedede;
+  border-radius: 0.25rem;
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+  outline: none;
+  display: block;
+  width: 100%;
+  font-size: 1rem;
+  line-height: 1;
+  background-color: transparent;
+}
+
+textarea {
+  font-family: inherit;
+  resize: none;
+}
+
+input[type="submit"] {
+  border: thin solid #444;
+  border-radius: 0.25rem;
+  padding: 0.55rem 1rem;
+  margin-bottom: 1rem;
+  display: block;
+  padding: 0.5rem;
+  width: 10%;
+  font-size: 1rem;
+  line-height: 1;
+  background-color: transparent;
+}
+
+h2 {
+  margin-left: 40%;
+}
+
+p {
+  font-weight: bold;
+  color: red;
+  margin-top: 0px;
+  margin-bottom: 20px;
+  margin-left: 5px;
+}

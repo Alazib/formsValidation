@@ -1,7 +1,7 @@
 import { useState } from "react"
 
 export function useForm(initialForm, validateForm) {
-  const [form, useForm] = useState(initialForm)
+  const [form, setForm] = useState(initialForm)
 
   const [errors, setErrors] = useState({})
 
@@ -9,9 +9,20 @@ export function useForm(initialForm, validateForm) {
 
   const [response, setResponse] = useState(null)
 
-  function handleChange(e) {}
+  function handleChange(e) {
+    const { name, value } = e.target
 
-  function handleBlur(e) {}
+    setForm({
+      ...form,
+      [name]: value,
+    })
+  }
+
+  function handleBlur(e) {
+    handleChange(e)
+    //¿Podría quitar este handleChange?
+    setErrors(validateForm(form))
+  }
 
   function handleSubmit(e) {}
 

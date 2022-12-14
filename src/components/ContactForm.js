@@ -1,8 +1,21 @@
 import { useForm } from "../hooks/useForm"
+import "../styles/ContactForm.css"
 
-const initialForm = {}
+const initialForm = {
+  name: "",
+  email: "",
+  subject: "",
+  comments: "",
+}
+function validationsForm(form) {
+  let errors = {}
 
-function validationsForm(form) {}
+  if (!form.name.trim()) {
+    errors.name = "Name is required"
+  }
+
+  return errors
+}
 
 function ContactForm() {
   const {
@@ -17,7 +30,7 @@ function ContactForm() {
 
   return (
     <div>
-      <h2>Fomulario de Contacto</h2>
+      <h2>CONTACT FORM</h2>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -28,6 +41,7 @@ function ContactForm() {
           value={form.name}
           required
         ></input>
+        {errors.name && <p>{errors.name}</p>}
         <input
           type="text"
           name="email"
@@ -37,15 +51,17 @@ function ContactForm() {
           value={form.email}
           required
         ></input>
+        {errors.email && <p>{errors.email}</p>}
         <input
           type="text"
           name="subject"
-          placeholder="subject to discuss"
+          placeholder="Subject to discuss"
           onBlur={handleBlur}
           onChange={handleChange}
           value={form.subject}
           required
         ></input>
+        {errors.subject && <p>{errors.subject}</p>}
         <textarea
           name="comments"
           cols="50"
@@ -56,6 +72,7 @@ function ContactForm() {
           value={form.comments}
           required
         ></textarea>
+        {errors.comments && <p>{errors.comments}</p>}
         <input type="submit" value="Send"></input>
       </form>
     </div>
